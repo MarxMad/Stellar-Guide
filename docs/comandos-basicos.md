@@ -1,43 +1,72 @@
 # Comandos Básicos
 
-## Friendbot (Testnet)
-Fondea una cuenta en Testnet con su clave pública:
+## Stellar CLI (recetas y autocompletado)
+- Tareas típicas: enviar pagos, gestionar ciclo de vida de contratos, extender instancia/almacenamiento/wasm, y más (ver “Cookbook” del Stellar CLI).
+- Autocompletado:
 ```bash
-curl "https://friendbot.stellar.org/?addr=<PUBLIC_KEY>"
+stellar completion --shell bash
+source <(stellar completion --shell bash)
 ```
 
-## Consultar cuenta (Horizon)
+## Redes y llaves (Testnet)
+```bash
+# Usar Testnet
+stellar network use testnet
+
+# Generar y FONDEAR identidad (usa Friendbot internamente)
+stellar keys generate --fund alice --network testnet
+
+# Generar otra identidad sin fondear
+stellar keys generate bob
+
+# Añadir una clave pública existente con alias
+stellar keys add --public-key G... charlie
+```
+
+## Fundear cuentas y pagos (tx)
+```bash
+# Crear y fundear cuenta (bob recibe 10 XLM)
+stellar tx new create-account \
+  --source alice \
+  --destination bob \
+  --starting-balance 100_000_000
+
+# Enviar pago nativo (XLM) de bob a charlie: 4 XLM
+stellar tx new payment \
+  --source bob \
+  --destination charlie \
+  --asset native \
+  --amount 40_000_000
+```
+
+## Contratos con Stellar CLI
+```bash
+# Inicializar proyecto de contrato
+stellar contract init --name counter
+
+# Compilar
+stellar contract build --manifest-path contracts/counter/Cargo.toml
+
+# Desplegar (WASM ya compilado)
+stellar contract deploy \
+  --wasm target/wasm32-unknown-unknown/release/counter.wasm \
+  --network testnet --source alice
+
+# Invocar función (pasando args tras --)
+stellar contract invoke --id <CONTRACT_ID> \
+  --source alice --network testnet -- \
+  increment
+```
+
+## Consulta rápida (opcional)
+Si deseas consultar balances/estado de una cuenta con Horizon:
 ```bash
 curl "https://horizon-testnet.stellar.org/accounts/<PUBLIC_KEY>"
 ```
 
-## Soroban CLI (contratos)
-Compilar, desplegar e invocar (ejemplo general):
-```bash
-# Compilar contrato (ajusta ruta a tu contrato)
-soroban contract build --manifest-path contracts/<nombre>/Cargo.toml
-
-# Configurar red Testnet
-soroban config network add --global testnet \
-  --rpc-url https://rpc.stellar.org \
-  --network-passphrase "Test SDF Network ; September 2015"
-
-# Generar clave
-soroban keys generate alice
-
-# Desplegar
-soroban contract deploy \
-  --wasm target/wasm32-unknown-unknown/release/<nombre>.wasm \
-  --network testnet --source alice
-
-# Invocar función
-soroban contract invoke --id <CONTRACT_ID> \
-  --fn <funcion> --network testnet --source alice
-```
-
 ## SDK JS (snippet mínimo)
 ```js
-import { Keypair, Server, Networks, TransactionBuilder, Operation } from "@stellar/stellar-sdk";
+import { Asset, Keypair, Server, Networks, TransactionBuilder, Operation } from "@stellar/stellar-sdk";
 
 const server = new Server("https://horizon-testnet.stellar.org");
 const pair = Keypair.random();

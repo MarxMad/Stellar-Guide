@@ -2,6 +2,15 @@
 
 Repositorio simple en GitHub para impartir talleres de Stellar: documentación en Markdown, diagramas Mermaid y ejercicios prácticos de 0→builder.
 
+```mermaid
+flowchart LR
+  A[Instalación] --> B[Comandos básicos]
+  B --> C[Pagos y cuentas]
+  C --> D[Contratos (Soroban)]
+  D --> E[Cliente JS/Python]
+  E --> F[Publicación y buenas prácticas]
+```
+
 ## Estructura
 - docs/: documentación principal
 - exercises/: ejercicios prácticos
@@ -18,6 +27,8 @@ Repositorio simple en GitHub para impartir talleres de Stellar: documentación e
 - Sigue la [docs/guia-0-a-builder.md](docs/guia-0-a-builder.md)
 - Haz el ejercicio inicial: [exercises/01-pago-simple.md](exercises/01-pago-simple.md)
 
+> Nota: para CLI oficial, sigue [docs/instalacion.md](docs/instalacion.md) y usa Stellar CLI con autocompletado.
+
 ## Cómo publicar en GitHub
 1. Crear repo en GitHub vacío (por ejemplo `stellar-guide`)
 2. En tu máquina:
@@ -32,4 +43,3 @@ Repositorio simple en GitHub para impartir talleres de Stellar: documentación e
 
 ## Licencia
 MIT
-# Stellar-Guide

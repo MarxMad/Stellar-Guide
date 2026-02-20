@@ -17,3 +17,23 @@ Stellar es una red de pagos y emisión de activos enfocada en transferencias rá
 - Desplegar e invocar contratos Soroban en Testnet.
 - Integrar clientes (JS/Python).
 - Diseñar flujos y buenas prácticas de seguridad.
+
+## Mapa visual del taller
+```mermaid
+mindmap
+  root((Stellar 0→Builder))
+    Fundamentos
+      Cuentas
+      Transacciones
+      Horizon
+    Práctica
+      Pagos
+      Contratos
+      SDKs
+    Visualización
+      Mermaid
+      Logs y eventos
+    Publicación
+      Checklist
+      Handouts
+```
