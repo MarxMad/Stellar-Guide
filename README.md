@@ -4,11 +4,11 @@ Repositorio simple en GitHub para impartir talleres de Stellar: documentación e
 
 ```mermaid
 flowchart LR
-  A[Instalación] --> B[Comandos básicos]
-  B --> C[Pagos y cuentas]
-  C --> D[Contratos (Soroban)]
-  D --> E[Cliente JS/Python]
-  E --> F[Publicación y buenas prácticas]
+  A["Instalación"] --> B["Comandos básicos"]
+  B --> C["Pagos y cuentas"]
+  C --> D["Contratos (Soroban)"]
+  D --> E["Cliente JS/Python"]
+  E --> F["Publicación y buenas prácticas"]
 ```
 
 ## Estructura
