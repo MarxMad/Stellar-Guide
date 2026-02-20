@@ -42,7 +42,7 @@ stellar tx new payment \
 ## Contratos con Stellar CLI
 ```bash
 # Inicializar proyecto de contrato
-stellar contract init --name counter
+stellar contract init --name counter .
 
 # Compilar
 stellar contract build --manifest-path contracts/counter/Cargo.toml
