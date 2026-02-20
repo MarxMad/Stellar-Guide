@@ -1,0 +1,21 @@
+# Node
+node_modules/
+*.log
+.DS_Store
+
+# Rust / Soroban
+target/
+**/*.wasm
+Cargo.lock
+
+# Python (opcional)
+__pycache__/
+*.pyc
+.venv/
+
+# Marp outputs
+slides/*.html
+slides/*.pdf
+
+# Environment
+.env
