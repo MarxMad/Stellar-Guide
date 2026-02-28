@@ -29,6 +29,12 @@ flowchart LR
 
 > Nota: para CLI oficial, sigue [docs/instalacion.md](docs/instalacion.md) y usa Stellar CLI con autocompletado.
 
+## Contratos Desplegados (Testnet)
+
+| Contrato | ID / Dirección | Enlaces |
+|----------|----------------|---------|
+| Dispersor de Nóminas | `CBM3OJUPURMLBUN563QN7I62J3SF4OYVIDDN3HPEROCQ3V4AL4VDEZXD` | [Stellar Lab](https://lab.stellar.org/r/testnet/contract/CBM3OJUPURMLBUN563QN7I62J3SF4OYVIDDN3HPEROCQ3V4AL4VDEZXD) <br> [Stellar Expert](https://stellar.expert/explorer/testnet/contract/CBM3OJUPURMLBUN563QN7I62J3SF4OYVIDDN3HPEROCQ3V4AL4VDEZXD) |
+
 ## Cómo publicar en GitHub
 1. Crear repo en GitHub vacío (por ejemplo `stellar-guide`)
 2. En tu máquina:
